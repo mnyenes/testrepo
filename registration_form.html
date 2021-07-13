@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration Form</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        var provinceObject = {
+        "Eastern Cape": {
+            "Alfred Nzo": ["Matatiele", "Umzimvubu", "Winnie madikizela Mandela", "Ntabankulu"],
+            "Amathole": ["Mbhashe", "Mnquma", "Great Kei", "Amahlathi", "Ngqushwa", "Raymond Mhlaba"],
+            "Buffalo City Metro": ["None"],
+            "Chris Hani": ["Inxuba Yethemba", "Enoch Mgijima", "Intsika Yethu", "Emalahleni", "Engcobo", "Sakhisizwe"],
+            "Joe Gqabi": ["Elundini", "Senqu", "Walter Sisulu"],
+            "Nelson Mandela Bay Metro": ["None"],
+            "O R Tambo": ["Ngquza Hill", "Port St Johns", "Nyandeni", "Mhlontlo", "King Sabata Dalindyebo"],
+            "Sarah Baardman": ["Dr Beyers Naudé", "Blue Crane Route", "Makana", "Ndlambe", "Sundays River Valley", "Kouga", "Kou-Kamma"]    
+            },
+
+        "Free State": {
+            "Fezile Dabi": ["Moqhaka", "Ngwathe", "Metsimaholo", "Mafube"],
+            "Lejweleputswa": ["Masilonyana", "Tokologo", "Tswelopele", "Matjhabeng", "Nala"],
+            "Mangaung Metro": ["None"],
+            "Thabo Mofutsanyana": ["Setsoto", "Dihlabeng", "Nketoana", "Maluti-a-Phofung", "Phumelela", "Mantsopa"],
+            "Xhariep": ["Letsemeng", "Kopanong", "Mohokare", "Naledi"]    
+            },
+
+        "Gauteng": {
+            "City of Johannesburg Metro": ["None"],
+            "City of Tshwane Metro": ["None"],
+            "City of Ekurhuleni Metro": ["None"],
+            "Sedibeng": ["Emfuleni", "Midvaal", "Lesedi"],
+            "West Rand": ["Mogale City", "Rand West City", "Merafong City"]    
+            },
+
+        "KwaZulu-Natal": {
+            "Amajuba": ["Newcastle", "eMadlangeni", "Dannhauser"],
+            "eThekwini Metro": ["None"],
+            "Harry Gwala": ["Dr Nkosazana Dlamini-Zuma", "Greater Kokstad", "Ubuhlebezwe", "Umzimkhulu"],
+            "iLembe": ["Mandeni", "KwaDukuza", "Ndwedwe", "Maphumulo"],
+            "King Cetshwayo": ["Mbonambi", "uMhlathuze", "Ntambanana", "uMlalazi", "Mthonjaneni", "Nkandla"],
+            "Ugu": ["Ray Nkonyeni", "uMdoni", "Umzumbe", "uMuziwabantu"],
+            "uMgungundlovu": ["uMshwathi", "uMngeni", "Mpofana", "Impendle", "Msunduzi", "Mkhambathini", "Richmond"],
+            "uMkhanyakude": ["uMhlabuyalingana", "Jozini", "Big Five False Bay", "Hlabisa", "Mtubatuba"],
+            "uMzinyathi": ["Endumeni", "Nquthu", "Msinga", "Umvoti"],
+            "uThukela": ["Emnambithi/Ladysmith", "Indaka", "Umtshezi", "Okhahlamba", "Imbabazane"],
+            "Zululand": ["eDumbe", "uPhongolo", "Abaqulusi", "Nongoma", "Ulundi"]    
+            },
+
+        "Limpopo": {
+            "Capricorn": ["Blouberg", "Molemole", "Polokwane", "Lepelle-Nkumpi"],
+            "Mopani": ["Greater Giyani", "Greater Letaba", "Greater Tzaneen", "Ba-Phalaborwa", "Maruleng"],
+            "Sekhukhune": ["Fetakgomo/Tubatse", "Ephraim Mogale", "Elias Motsoaledi", "Makhuduthamaga"],
+            "Vhembe": ["Musina", "Collins Chabane", "Thulamela", "Makhado"],
+            "Waterberg": ["Thabazimbi", "Lephalale", "Modimolle–Mookgophong", "Bela-Bela", "Mogalakwena"]    
+            },
+
+        "Mpumalanga": {
+            "Ehlanzeni": ["Thaba Chweu", "Mbombela", "Umjindi", "Nkomazi", "Bushbuckridge"],
+            "Gert Sibande": ["Albert Luthuli", "Msukaligwa", "Mkhondo", "Pixley Ka Seme", "Lekwa", "Dipaleseng", "Govan Mbeki"],
+            "Nkangala": ["Victor Khanye", "Emalahleni", "Steve Tshwete", "Emakhazeni", "Thembisile Hani", "Dr JS Moroka"]    
+            },
+
+        "Northern Cape": {
+            "Frances Baard": ["Sol Plaatje", "Dikgatlong", "Magareng", "Phokwane"],
+            "John Taolo Gaetsewe": ["Joe Morolong", "Ga-Segonyana", "Gamagara"],
+            "Namakwa": ["Richtersveld", "Nama Khoi", "Kamiesberg", "Hantam", "Karoo Hoogland", "Khâi-Ma"],
+            "Pixley ka Seme": ["Ubuntu", "Umsobomvu", "Emthanjeni", "Kareeberg", "Renosterberg", "Thembelihle", "Siyathemba", "Siyancuma"],    
+            "ZF Mgcawu": ["Mier", "Kai !Garib", "//Khara Hais", "!Kheis", "Tsantsabane", "Kgatelopele", "Dawid Kruiper"]  
+          },
+
+        "North West": {
+            "Bojanala": ["Madibeng", "Moretele", "Moses Kotane", "Rustenburg", "Kgetlengrivier"],
+            "Dr. Kenneth Kuanda": ["JB Marks", "City of Matlosana", "Maquassi Hills"],
+            "Dr. Ruth Segomosti. Mompati": ["Naledi", "Mamusa", "Greater Taung", "Lekwa-Teemane", "Kagisano/Molopo"],
+            "Ngaka Modiri Molema": ["Mahikeng", "Ratlou", "Tswaing", "Ditsobotla", "Ramotshere Moiloa"]    
+            },
+            
+        "Western Cape": {
+            "Cape Winelands": ["Witzenberg", "Drakenstein", "Stellenbosch", "Breede Valley", "Langeberg"],
+            "Central Karoo": ["Laingsburg", "Prince Albert", "Beaufort West"],
+            "City of Cape Town Metro": ["None"],
+            "Garden Route": ["Kannaland", "Hessequa", "Mossel Bay", "George", "Oudtshoorn", "Bitou", "Knysna"],
+            "Overberg": ["Theewaterskloof", "Overstrand", "Cape Agulhas", "Swellendam"],
+            "West Coast": ["Matzikama", "Cederberg", "Bergrivier", "Saldanha Bay", "Swartland"]
+          }
+        }
+        window.onload = function() {
+          var provinceSel = document.getElementById("province");
+          var districtSel = document.getElementById("district");
+          var municipalitySel = document.getElementById("municipality");
+          for (var x in provinceObject) {
+            provinceSel.options[provinceSel.options.length] = new Option(x, x);
+          }
+          provinceSel.onchange = function() {
+            //empty Municipalitys- and Districts- dropdowns
+            municipalitySel.length = 1;
+            districtSel.length = 1;
+            //display correct values
+            for (var y in provinceObject[this.value]) {
+              districtSel.options[districtSel.options.length] = new Option(y, y);
+            }
+          }
+          districtSel.onchange = function() {
+            //empty Municipalitys dropdown
+            municipalitySel.length = 1;
+            //display correct values
+            var z = provinceObject[provinceSel.value][this.value];
+            for (var i = 0; i < z.length; i++) {
+              municipalitySel.options[municipalitySel.options.length] = new Option(z[i], z[i]);
+            }
+          }
+        }
+        </script>
+        </head>   
+        
+        
+              
+
+<body>
+    <h2>Registration Form</h2>   
+    <form action="/register">
+        <label for="firstname">First name :</label>
+            <input type="text" id="firstname" name="firstname">
+            <br><br>
+            <label for="lastname">Last name :</label>
+            <input type="text" id="lastname" name="lastname">
+            <br><br>
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email">
+            <br><br>
+            <input type="submit" value="Submit">
+            
+            <h1>Cascading Dropdown Example</h1>
+        
+        <form name="form1" id="form1" action="/action_page.php">
+        Province you are operating in?: <select name="province" id="province">
+            <option value="" selected="selected">Select province</option>
+          </select>
+          <br><br>
+        District you are operating in?: <select name="district" id="district">
+            <option value="" selected="selected">Please select province first</option>
+          </select>
+          <br><br>
+        Municipality you are operating in?: <select name="municipality" id="municipality">
+            <option value="" selected="selected">Please select district first</option>
+          </select>
+          <br><br>
+          <input type="submit" value="Submit"> 
+         
+        </form>
+</body>
+</html>
